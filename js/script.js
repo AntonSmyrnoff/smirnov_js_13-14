@@ -22,11 +22,13 @@ var test = {
   ]
 };
 
-var testStr = JSON.stringify(test);
-    localStorage.setItem('str', testStr);
 
-    testStr = localStorage.getItem('str');
-    var testForGen = JSON.parse(testStr); //js-obj from localStorage
+var testStr = JSON.stringify(test);
+localStorage.setItem('str', testStr);
+
+var testStr = localStorage.getItem('str');
+var testForGen = JSON.parse(testStr); //js-obj from localStorage
+
 
 $(function () {
   var testTmpl = $('#tmpl').html();
@@ -50,18 +52,33 @@ $(function () {
       $(this).attr('checked', false)//очищаем инпуты
     })
 
-
+    openModal();
+    closeModal();
     if (sum == testForGen.questionList.length) {
-    alert('Тест пройден!');
-    sum = 0; //после закрытия модальки обнуляем сумму и можно проходить тест заново без перезагрузки страницы
-    return sum
-    }
-    else {
-      alert('Тест не пройден... Количество неправильных ответов: ' + (testForGen.questionList.length - sum));
-      sum = 0;
+      $('.modal-body p').html('Тест пройден!');
+      sum = 0; //после закрытия модальки обнуляем сумму и можно проходить тест заново без перезагрузки страницы
       return sum
     }
+    else {
+      $('.modal-body p').html('Тест не пройден... Количество неправильных ответов: ' + (testForGen.questionList.length - sum) );
+      sum = 0;
+      return sum
+    };
+
   })
+
+  function openModal() {
+    $('.modal').css({'display' : 'block'});
+    $('.fade').css({'opacity' : 1});
+  }
+
+  function closeModal() {
+    $('.btn').click(function() {
+        $('.modal').css({'display' : 'none'});
+        $('.fade').css({'opacity' : 0});
+      })
+  }
+
 
 
 })

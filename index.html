@@ -3,12 +3,11 @@
 <head>
 	<title>Hometask js 13-14</title>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/tmpl.js"></script>
 	<script type="text/javascript" src="js/script.js"></script> 
-	
-
 </head>
 <body>
 	<script type="text/tmpl" id="tmpl">
@@ -17,7 +16,7 @@
 			<% for (var i=0; i<questionList.length; i++) { %>
 				<li><%= questionList[i].question %>
 					<% for (var j=0; j<questionList[i].answerVariants.length; j++) {%>
-						<div class="radio">
+						<div class="variants">
 							<label>
 								<%= questionList[i].answerVariants[j]%>
 								<input type="radio" name="question_<%= i+1 %>" id="<%=i+1%><%=j+1%>" style="float: left">
@@ -31,12 +30,23 @@
 
 	<div id ="test">
 		<button id="check-result">Проверить мои результаты</button>
+
+		<div class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">Результаты теста</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p></p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary">OK</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
 	</div>
-
-	
-
-
-
- 
 </body>
 </html>

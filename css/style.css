@@ -8,7 +8,7 @@
 	font-family: Arial;
 }
 
-#test button {
+#check-result {
 	margin-top: 20px;
 	padding: 2px;
 }
@@ -21,11 +21,21 @@ li {
 	margin-top: 15px;
 }
 
-.radio {
-	margin-top: 5px;
+.variants {
 	margin-left: 20px;
 }
 
-input {
+.variants label {
+	font-weight: 400;
+}
+
+input[type=radio] {
+	margin: 4px 0;
 	margin-right: 10px;
+	position: relative;
+}
+
+.modal {
+	top: 50px;
+	overflow: inherit;
 }
